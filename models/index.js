@@ -16,14 +16,14 @@ Recipe.belongsTo(User, {
 
 User.belongsToMany(Recipe, {
     through: Vote,
-    as: 'voted_posts',
+    as: 'voted_recipes',
     foreignKey: 'user_id',
     onDelete: 'SET NULL'
 });
 
 Recipe.belongsToMany(User, {
     through: Vote,
-    as: 'voted_posts',
+    as: 'voted_recipes',
     foreignKey: 'recipe_id',
     onDelete: 'SET NULL'
 });
