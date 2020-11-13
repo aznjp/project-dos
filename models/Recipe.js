@@ -1,25 +1,26 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// create our Post model
-class Post extends Model {
+
+class Recipe extends Model {
     static upvote(body, models) {
         return models.Vote.create({
             user_id: body.user_id,
-            post_id: body.post_id
+            recipe_id: body.recipe_id
         }).then(() => {
-            return Post.findOne({
+            return Recipe.findOne({
                 where: {
-                    id: body.post_id
+                    id: body.recipe_id
                 },
                 attributes: [
                     'id',
-                    'post_body',
+                    'ingredients',
+                    'instructions',
                     'title',
-                    'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+                    'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE recipe.id = vote.recipe_id)'), 'vote_count']
                 ],
                 include: [{
                     model: models.Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    attributes: ['id', 'comment_text', 'recipe_id', 'user_id', 'created_at'],
                     include: {
                         model: models.User,
                         attributes: ['username']
@@ -30,8 +31,7 @@ class Post extends Model {
     }
 }
 
-// create fields/columns for Post model
-Post.init({
+Recipe.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -42,7 +42,11 @@ Post.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    post_body: {
+    ingredients: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    instructions: {
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -55,9 +59,11 @@ Post.init({
     }
 }, {
     sequelize,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post'
+    modelName: 'recipe'
 });
 
-module.exports = Post;
+
+module.exports = Recipe;
