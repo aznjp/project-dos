@@ -25,6 +25,27 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
+router.put('/:id', withAuth, (req, res) => {
+    Comment.update({
+            comment_text: req.body.comment_text,
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(dbRecipeData => {
+            if (!dbRecipeData) {
+                res.status(404).json({ message: 'No Comments found with this id' });
+                return;
+            }
+            res.json(dbRecipeData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
             where: {
