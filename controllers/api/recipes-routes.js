@@ -17,18 +17,20 @@ router.put('/upvote', withAuth, (req, res) => {
 
 router.put('/:id', withAuth, (req, res) => {
     Recipe.update({
-            title: req.body.title
+            title: req.body.title,
+            instructions: req.body.instructions,
+            ingredients: req.body.ingredients
         }, {
             where: {
                 id: req.params.id
             }
         })
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(dbRecipeData => {
+            if (!dbRecipeData) {
                 res.status(404).json({ message: 'No recipes found with this id' });
                 return;
             }
-            res.json(dbPostData);
+            res.json(dbRecipeData);
         })
         .catch(err => {
             console.log(err);
@@ -43,12 +45,12 @@ router.delete('/:id', withAuth, (req, res) => {
                 id: req.params.id
             }
         })
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(dbRecipeData => {
+            if (!dbRecipeData) {
                 res.status(404).json({ message: 'No recipe found with this id' });
                 return;
             }
-            res.json(dbPostData);
+            res.json(dbRecipeData);
         })
         .catch(err => {
             console.log(err);
