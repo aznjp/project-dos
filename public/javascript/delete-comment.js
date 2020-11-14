@@ -1,10 +1,10 @@
-async function deleteRecipeHandler(event) {
+async function deleteCommentHandler(event) {
     event.preventDefault();
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
-    const response = await fetch(`/api/recipes/${id}`, {
+    const response = await fetch(`/api/comments/${id}`, {
         method: 'DELETE'
     });
 
@@ -15,4 +15,4 @@ async function deleteRecipeHandler(event) {
     }
 }
 
-document.querySelector('.delete-recipe-btn').addEventListener('click', deleteRecipeHandler);
+document.querySelector('.delete-comment-btn').addEventListener('click', deleteCommentHandler);
