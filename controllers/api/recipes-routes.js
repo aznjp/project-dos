@@ -17,7 +17,9 @@ router.put('/upvote', withAuth, (req, res) => {
 
 router.put('/:id', withAuth, (req, res) => {
     Recipe.update({
-            title: req.body.title
+            title: req.body.title,
+            instructions: req.body.instructions,
+            ingredients: req.body.ingredients
         }, {
             where: {
                 id: req.params.id
