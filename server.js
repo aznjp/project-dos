@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -33,6 +35,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
+app.post('/profile', upload.single('avatar'), function(req, res, next) {
+    // req.file is the `avatar` file
+    // req.body will hold the text fields, if there were any
+})
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
