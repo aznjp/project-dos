@@ -2,14 +2,24 @@
 
 
 const express = require('express');
-const express_hbs = require('express-handlebars');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 const path = require('path');
-//const db = require('./config/connection');
 
+const db = require('./config/connection');
 
-
+db.authenticate().then(() => {
+ console.info('Database connected.')
+})
+.catch(err => {
+ console.error('ERROR - Unable to connect to the database:', err)
+})
 
 const app = express();
+
 app.get('/', (req,res) => {
     res.send('Test');
 });
