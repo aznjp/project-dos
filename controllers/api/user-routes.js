@@ -51,7 +51,6 @@ router.post('/', (req, res) => {
 })
 
 
-
 router.put('/:id', (req, res) => {
     User.update(req.body, {
             individualHooks: true,
@@ -71,6 +70,7 @@ router.put('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
+
 
 router.delete('/:id', (req, res) => {
     User.destroy({

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Recipe, User, Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 
 
 router.get('/', (req, res) => {
@@ -111,7 +111,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     console.log('id', req.params.id);
     Recipe.destroy({
             where: {
