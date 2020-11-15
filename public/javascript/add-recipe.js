@@ -1,9 +1,13 @@
+const { json } = require("sequelize/types");
+
 async function newRecipeHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('input[name="recipe-title"]').value;
-    const ingredients = document.querySelector('textarea[name="ingredients"]').value;
+    const preIngredients = document.querySelector('textarea[name="ingredients"]').value;
     const instructions = document.querySelector('textarea[name="instructions"]').value;
+
+    const ingredients = JSON.stringify(preIngredients)
 
     const response = await fetch(`/api/recipes`, {
         method: 'POST',

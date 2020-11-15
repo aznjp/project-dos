@@ -36,7 +36,13 @@ User.init({
         validate: {
             len: [10]
         }
-    }
+    },
+    // avatar: {
+    //     type: DataTypes.STRING,
+    // },
+    // cloudinary_id: {
+    //     type: DataTypes.STRING,
+    // },
 }, {
     hooks: {
         // set up beforeCreate lifecycle "hook" functionality

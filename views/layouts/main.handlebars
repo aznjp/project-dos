@@ -8,30 +8,30 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<header>
-    <nav>
-    <hi>
-        <a href="/">Another Food Blog</a>
-    </hi>
-    <hi>
-        <a href="/login">Login</a>
-    </hi>
-    </nav>
-</header>
-
 <body>
     <div class="wrapper">
-        <header>
-            <h1>
-                Another Food Blog
-            </h1>
-        </header>
-        <main class="blog-body">
+      <header>
+        <h1>
+          <a href="/"> Another Food Blog</a>
+        </h1>
+        <nav>
+          <a href="/">Homepage</a>
+          <a href="/dashboard">Dashboard</a>
+          {{#if loggedIn}}
+          <button id="logout" class="btn-no-style">Logout</button>
+          {{else}}
+          <a href="/login">Login</a>
+          <a href="/signin">Sign Up</a>
+          {{/if}}
+        </nav>
+      </header>
 
-        </main>
-        <footer>
-            Come back anytime!
-        </footer>
+      <main>
+        {{{body}}}
+      </main>
+      <footer>
+          Come back anytime!
+      </footer>
     </div>
 </body>
 
