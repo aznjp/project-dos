@@ -1,6 +1,25 @@
 const router = require('express').Router();
 const { Recipe, User, Comment } = require('../models');
 // const withAuth = require('../utils/auth');
+// const cloudinary = require('cloudinary').v2;
+// const { CloudinaryStorage } = require('multer-storage-cloudinary');
+// const multer = require('multer');
+
+// cloudinary.config({
+//     cloud_name: process.env.CLOUD_NAME,
+//     api_key: process.env.API_KEY,
+//     api_secret: process.env.API_SECRET
+// });
+
+// const storage = new CloudinaryStorage({
+//     cloudinary: cloudinary,
+//     params: {
+//         folder: "avatars",
+//         allowedFormats: ["jpg", "png"]
+//     }
+// });
+// const imgUpload = multer({ storage: storage });
+
 
 router.get('/edit/:id', (req, res) => {
     Recipe.findByPk(req.params.id, {
