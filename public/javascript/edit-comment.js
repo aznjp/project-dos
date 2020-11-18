@@ -3,7 +3,6 @@ async function editCommentHandler(event) {
 
     const comment_text = document.querySelector('input[name="edit-comment"]').value.trim();
 
-
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];

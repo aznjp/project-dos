@@ -1,4 +1,13 @@
-<form class="signup-form">
+{{!-- <form action="/api/users/signup" method="post" enctype="multipart/form-data">
+    <input type="file" name='avatar' placeholder="Select file"/>
+    <br/>
+    <button>Upload</button>
+</form> --}}
+
+<form class="signup-form" enctype="multipart/form-data">
+    <div>
+        <input type="file" name="avatar" />
+    </div>
     <div>
         <label for="username-signup">username:</label>
         <input type="text" id="username-signup"/>
