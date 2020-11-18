@@ -15,7 +15,6 @@ const commentdata = [{
         user_id: 3,
         recipe_id: 3
     },
-];
 
 const seedComments = () => Comment.bulkCreate(commentdata);
 
