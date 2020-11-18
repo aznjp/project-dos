@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Recipe, User, Comment } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 
 router.get('/', (req, res) => {
@@ -13,19 +13,19 @@ router.get('/', (req, res) => {
                 'instructions',
                 'created_at',
             ],
-            // include: [{
-            //         model: Comment,
-            //         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            //         include: {
-            //             model: User,
-            //             attributes: ['username']
-            //         }
-            //     },
-            //     {
-            //         model: User,
-            //         attributes: ['username']
-            //     }
-            // ]
+            include: [{
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'recipe_id', 'user_id', 'created_at'],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
         })
         .then(dbRecipeData => res.json(dbRecipeData))
         .catch(err => {
@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Recipe.findOne({
             where: {
                 id: req.params.id
@@ -46,19 +46,19 @@ router.get('/:id', (req, res) => {
                 'instructions',
                 'created_at',
             ],
-            // include: [{
-            //         model: Comment,
-            //         attributes: ['id', 'comment_text', 'recipe_id', 'user_id', 'created_at'],
-            //         include: {
-            //             model: User,
-            //             attributes: ['username']
-            //         }
-            //     },
-            //     {
-            //         model: User,
-            //         attributes: ['username']
-            //     }
-            // ]
+            include: [{
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'recipe_id', 'user_id', 'created_at'],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
         })
         .then(dbRecipeData => {
             if (!dbRecipeData) {
@@ -74,7 +74,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Recipe.create({
             title: req.body.title,
             instructions: req.body.instructions,
@@ -88,7 +88,7 @@ router.post('/', (req, res) => {
         });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Recipe.update({
             title: req.body.title,
             instructions: req.body.instructions,
@@ -111,7 +111,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     console.log('id', req.params.id);
     Recipe.destroy({
             where: {

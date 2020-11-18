@@ -1,11 +1,46 @@
 const router = require('express').Router();
 const { Recipe, User, Comment } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 // const multer = require('multer');
 
+router.get('/', withAuth, (req, res) => {
+    Recipe.findAll({
+            where: {
+                user_id: req.session.user_id
+            },
+            attributes: [
+                'id',
+                'title',
+                'ingredients',
+                'instructions',
+                'created_at',
+            ],
+            include: [{
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'recipe_id', 'user_id', 'created_at'],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        })
+        .then(dbRecipeData => {
+            const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
+            res.render('dashboard', { recipes, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
     Recipe.findByPk(req.params.id, {
             attributes: [
                 'id',
@@ -45,7 +80,7 @@ router.get('/edit/:id', (req, res) => {
         });
 });
 
-router.get('/new-recipe', (req, res) => {
+router.get('/new-recipe', withAuth, (req, res) => {
     Recipe.findAll({
             where: {
                 user_id: req.session.user_id

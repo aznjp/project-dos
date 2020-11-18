@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const { User } = require('../../models')
-const multer = require('multer')
-var upload = multer({ dest: 'uploads/' })
+const { User } = require('../../models');
+// const multer = require('multer')
+// var upload = multer({ dest: 'uploads/' })
 
 // const storage = multer.diskStorage({
 //     destination: function(req, file, cb) {
@@ -96,9 +96,7 @@ router.post('/login', (req, res) => {
 });
 
 
-router.post('/signup', upload.single('avatar'), (req, res, next) => {
-    console.log(req.file)
-    console.log(req.body)
+router.post('/signup', (req, res, next) => {
     User.create({
             username: req.body.username,
             email: req.body.email,
