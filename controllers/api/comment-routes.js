@@ -36,11 +36,10 @@ router.put('/:id', withAuth, (req, res) => {
             if (!dbRecipeData) {
                 res.status(404).json({ message: 'No Comments found with this id' });
                 return;
+            } else if (!req.session.user_id) {
+                res.status(404).json({ message: 'This is not your comment!' });
+                return;
             }
-            // else if (!req.session.user_id) {
-            //     res.status(404).json({ message: 'This is not your comment!' });
-            //     return;
-            // }
             res.json(dbRecipeData);
         })
         .catch(err => {

@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 
 router.get('/', (req, res) => {
-    console.log('======================');
+
     Recipe.findAll({
             attributes: [
                 'id',

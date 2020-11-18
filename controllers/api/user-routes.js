@@ -1,18 +1,5 @@
 const router = require('express').Router()
 const { User } = require('../../models');
-// const multer = require('multer')
-// var upload = multer({ dest: 'uploads/' })
-
-// const storage = multer.diskStorage({
-//     destination: function(req, file, cb) {
-//         cb(null, '/uploads')
-//     },
-//     filename: function(req, file, cb) {
-//         cb(null, file.fieldname + 'avatar' + Date.now())
-//     }
-// })
-
-// const upload = multer({ storage: storage })
 
 // get all users
 router.get('/', (req, res) => {

@@ -2,10 +2,8 @@ async function newRecipeHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('input[name="recipe-title"]').value;
-    const preParseIngredients = document.querySelector('textarea[name="ingredients"]').value;
+    const ingredients = document.querySelector('textarea[name="ingredients"]').value;
     const instructions = document.querySelector('textarea[name="instructions"]').value;
-
-    const ingredients = preParseIngredients.split("|").join("<li>").split("~").join("</li>").split(",").join("</li> <li>")
 
     const response = await fetch(`/api/recipes`, {
         method: 'POST',
