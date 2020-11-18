@@ -1,0 +1,20 @@
+<div class="single-recipe">
+  {{> post-info post}}
+</div>
+
+{{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body" class="form-control" rows="5"></textarea>
+  </div>
+  <div>
+    <button type="submit" class ="btn btn-primary btn-block">Add Comment</button>
+  </div>
+</form>
+{{/if}}
+{{> comments post.comments}}
+
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

@@ -10,7 +10,7 @@ User.hasMany(Recipe, {
 
 Recipe.belongsTo(User, {
     foreignKey: 'user_id',
-    onDelete: 'CASCADE'
+    onDelete: 'SET NULL'
 });
 
 

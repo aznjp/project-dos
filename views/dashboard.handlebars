@@ -1,0 +1,21 @@
+<div class="text-center">
+  <h2 class="mb-4" style="font-size:6vw"><strong>DASHBOARD</strong></h2>
+  <button type="submit" class="btn btn-primary"><a href="/dashboard/new-recipe" > Create New Recipe</a></button>
+</div>
+
+
+{{#if recipes.length}}
+<section class = "your-recipe text-center">
+  <h2>Your Recipes</h2>
+  <ul class="text-left">
+    {{#each recipes as |recipe|}}
+    <li class="mb-3">
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{recipe.id}}" class="edit-link">Edit Recipe</a>
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
+
+<script src="/javascript/add-recipe.js"></script>

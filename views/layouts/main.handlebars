@@ -10,7 +10,7 @@
 
       <header>
         <h1>
-          <a href="/"> Another Food Blog</a>
+          <a href="/">Another Food Blog</a>
         </h1>
         <nav>
           <a href="/">Homepage</a>
@@ -19,10 +19,14 @@
           <button id="logout" class="btn-no-style">Logout</button>
           {{else}}
           <a href="/login">Login</a>
-          <a href="/signin">Sign Up</a>
+          <a href="/signup">Sign Up</a>
           {{/if}}
         </nav>
       </header>
+
+      {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+      {{/if}}
 
 <body>
     <div class="wrapper">
