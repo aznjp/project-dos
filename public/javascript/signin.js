@@ -29,7 +29,6 @@ async function signupFormHandler(event) {
     const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-    // const avatar = document.querySelector("input[name='avatar']").value
 
     if (username && email && password) {
         const response = await fetch('/api/users/signup', {
@@ -38,7 +37,6 @@ async function signupFormHandler(event) {
                 username,
                 email,
                 password,
-                // avatar
             }),
             headers: { 'Content-Type': 'application/json' }
         });

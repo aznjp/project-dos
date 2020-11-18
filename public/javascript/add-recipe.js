@@ -1,5 +1,3 @@
-const { json } = require("sequelize/types");
-
 async function newRecipeHandler(event) {
     event.preventDefault();
 
