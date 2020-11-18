@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/aznjp/project-dos#readme",
   "dependencies": {
+    "@popperjs/core": "^2.5.4",
     "bcrypt": "^5.0.0",
     "bootstrap": "^4.5.3",
     "connect-session-sequelize": "^7.0.4",
@@ -27,6 +28,7 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
+    "jquery": "^3.5.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
   },
