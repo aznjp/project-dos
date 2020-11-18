@@ -10,7 +10,7 @@
   <ul class="text-left">
     {{#each recipes as |recipe|}}
     <li class="mb-3">
-      {{> post-info post}}
+      {{> recipe-info recipe}}
       <a href="/dashboard/edit/{{recipe.id}}" class="edit-link">Edit Recipe</a>
     </li>
     {{/each}}

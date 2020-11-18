@@ -1,5 +1,5 @@
 <div class="comments">
-  {{#if loggedIn}}
+
   {{#each this}}
   <section class="comment">
     <div class="meta">
@@ -11,8 +11,8 @@
         <a href="/edit/{{comment.id}}" class="edit-link">Edit Comment</a>
   </section>
   {{/each}}
-  {{/if}}
-  {{#else}}
+
+
   You must <a href="/login" class="edit-link"> login </a> in to view comments
-  {{/else}}
+
 </div>

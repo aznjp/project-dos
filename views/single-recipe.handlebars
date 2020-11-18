@@ -1,5 +1,5 @@
 <div class="single-recipe">
-  {{> post-info post}}
+  {{> recipe-info post}}
 </div>
 
 {{#if loggedIn}}
@@ -12,7 +12,7 @@
   </div>
 </form>
 {{/if}}
-{{> comments post.comments}}
+{{> comments recipe.comments}}
 
 
 {{#if loggedIn}}
