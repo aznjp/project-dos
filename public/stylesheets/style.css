@@ -52,3 +52,18 @@
 .btn {
     color: white
 }
+
+footer {
+    background-color: var(--navbar-color);
+}
+
+.footer-title {
+    text-decoration-style: none;
+    font-family: serif;
+    text-shadow: 2px 4px 2px black;
+    color: var(--light-text);
+}
+
+.contact-us {
+    color: white;
+}
