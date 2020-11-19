@@ -1,5 +1,4 @@
 <article id = "recipe" class="recipe card mx-auto">
-  <div class="card-body">
   <div class="card-title">
       <a href="/recipe/{{id}}" class="edit-link"><h3>{{title}}</h3></a>
       <span class = "recipe-info">Created by <strong>{{user.username}} </strong> on <strong>{{format_date created_at}}</strong></span>   
@@ -10,6 +9,5 @@
 </div>
   <div class="recipe-comments">
     <a href="/recipe/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-  </div>
   </div>
 </article>

@@ -28,16 +28,6 @@
     justify-content: space-between;
 }
 
-.card-body {
-    background-color: var(--title-color);
-    ;
-}
-
-.card-title {
-    background-color: var(--title-color);
-    border-radius: 0;
-}
-
 .recipe-list {
     justify-content: center;
     align-content: center;
@@ -102,6 +92,10 @@ footer {
     color: white;
 }
 
-ol {
-    justify-content: space-between;
+.card-title {
+    background-color: var(--title-color);
+}
+
+.card-title h3 {
+    color: white;
 }
