@@ -27,8 +27,6 @@ router.get('/', (req, res) => {
             ]
         })
         .then(function(dbRecipeData) {
-            console.log("========================================== wow ================================")
-            console.log(dbRecipeData.req.body.ingredients)
             res.json(dbRecipeData)
             console.log(res.json(dbRecipeData))
         })
