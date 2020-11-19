@@ -1,18 +1,23 @@
 :root {
-    --light-text: #ffffff
-}
-
-.navbar {
-    text-decoration-style: none;
+    --light-text: #ffffff;
+    --navbar-color: #212529
 }
 
 .navbar a,
 .navbar a:hover,
 .navbar a:visited {
+    text-decoration-style: none;
+    font-family: serif;
+    text-shadow: 2px 4px 2px black;
     color: var(--light-text);
 }
 
-.login-page {
+.nav-brand {
+    text-shadow: 2px 5px 2px black;
+}
+
+.login-page,
+.signup-page {
     margin: 0;
     padding: 0;
     background-image: url(../images/cutting-board.jpg);
@@ -24,7 +29,12 @@
     justify-content: center;
 }
 
-.login-card {
+.signup-page {
+    background-image: url(../images/cutting-board2.jpg);
+}
+
+.login-card,
+.signup-card {
     border: black;
     box-shadow: 1px 2px 230px 1px black;
     padding: 20px;
@@ -34,6 +44,11 @@
     color: var(--light-text);
 }
 
-.login-form {
-    text-align: justify;
+.login-form,
+.signup-form {
+    text-align: right;
+}
+
+.btn {
+    color: white
 }
