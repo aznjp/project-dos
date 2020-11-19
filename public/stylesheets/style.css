@@ -1,3 +1,17 @@
+:root {
+    --light-text: #ffffff
+}
+
+.navbar {
+    text-decoration-style: none;
+}
+
+.navbar a,
+.navbar a:hover,
+.navbar a:visited {
+    color: var(--light-text);
+}
+
 .login-page {
     margin: 0;
     padding: 0;
