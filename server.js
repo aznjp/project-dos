@@ -2,11 +2,11 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const multer = require('multer')
+// const multer = require('multer')
 
 // const storage = multer.diskStorage({
 //     destination: function(req, file, cb) {
-//         cb(null, 'uploads/')
+//         cb(null, 'uploads')
 //     },
 //     filename: function(req, file, cb) {
 //         cb(null, Date.now() + path.extname(file.originalname)) //Appending extension
@@ -48,14 +48,10 @@ const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(express.json());
+app.use(express.json({ limit: "20MB" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.post('/upload', upload.single('recipe-img'), function(req, res, next) {
-//     console.log('test')
-//     console.log(req.file)
-// })
 
 app.use(require('./controllers/'));
 

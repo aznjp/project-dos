@@ -2,7 +2,25 @@ const router = require('express').Router();
 const { Recipe, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// const upload = multer({ storage: storage });
+// const multer = require('multer')
+
+// const storage = multer.diskStorage({
+//     destination: function(req, file, cb) {
+//         cb(null, 'uploads')
+//     },
+//     filename: function(req, file, cb) {
+//         cb(null, Date.now() + path.extname(file.originalname)) //Appending extension
+//     }
+// })
+// const fileFilter = (req, file, cb) => {
+//     if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' || file.mimetype == 'image/jpg') {
+//         cb(null, true);
+//     } else {
+//         cb(null, false);
+//     }
+// }
+
+// const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 router.get('/', (req, res) => {
     Recipe.findAll({
@@ -11,6 +29,7 @@ router.get('/', (req, res) => {
                 'title',
                 'ingredients',
                 'instructions',
+                'recipe_image',
                 'created_at',
             ],
             include: [{
@@ -47,6 +66,7 @@ router.get('/:id', (req, res) => {
                 'title',
                 'ingredients',
                 'instructions',
+                'recipe_image',
                 'created_at',
             ],
             include: [{
@@ -76,13 +96,19 @@ router.get('/:id', (req, res) => {
         });
 });
 
+// router.post('/profile', upload.single('recipe-img'), function(req, res, next) {
+//     // req.file is the `avatar` file
+//     // req.body will hold the text fields, if there were any
+//     console.log(req.file)
+// })
 
 router.post('/', withAuth, (req, res) => {
-    console.log(req.file)
+    // console.log(req.body)
     Recipe.create({
             title: req.body.title,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
+            recipe_image: req.body.recipe_image,
             user_id: req.session.user_id
         })
         .then(dbRecipeData => res.json(dbRecipeData))
@@ -97,7 +123,8 @@ router.put('/:id', withAuth, (req, res) => {
     Recipe.update({
             title: req.body.title,
             instructions: req.body.instructions,
-            ingredients: req.body.ingredients
+            ingredients: req.body.ingredients,
+            recipe_image: req.body.recipe_image,
         }, {
             where: {
                 id: req.params.id

@@ -12,6 +12,7 @@ router.get('/', withAuth, (req, res) => {
                 'title',
                 'ingredients',
                 'instructions',
+                'recipe_image',
                 'created_at',
             ],
             include: [{
@@ -45,6 +46,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 'title',
                 'ingredients',
                 'instructions',
+                'recipe_image',
                 'created_at',
             ],
             include: [{
@@ -88,6 +90,7 @@ router.get('/new-recipe', withAuth, (req, res) => {
                 'title',
                 'ingredients',
                 'instructions',
+                'recipe_image',
                 'created_at',
             ],
             include: [{

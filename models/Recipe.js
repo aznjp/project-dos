@@ -22,9 +22,9 @@ Recipe.init({
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    // recipe_image: {
-    //     type: DataTypes.STRING,
-    // },
+    recipe_image: {
+        type: DataTypes.BLOB("long"),
+    },
     user_id: {
         type: DataTypes.INTEGER,
         references: {
