@@ -9,7 +9,7 @@ async function deleteRecipeHandler(event) {
     });
 
     if (response.ok) {
-        Swal.fire(
+        await Swal.fire(
             'Sad to see you go',
             'Hope your next recipe is better',
             'warning'

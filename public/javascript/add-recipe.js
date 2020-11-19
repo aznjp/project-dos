@@ -22,7 +22,7 @@ async function newRecipeHandler(event) {
     console.log(response)
     if (response.ok) {
 
-        Swal.fire(
+        await Swal.fire(
             'Good Job!',
             'Recipe is now uploaded!!!!',
             'success'
