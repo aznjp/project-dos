@@ -1,6 +1,7 @@
 :root {
     --light-text: #ffffff;
-    --navbar-color: #212529
+    --navbar-color: #212529;
+    --title-color: #393e46
 }
 
 .navbar a,
@@ -14,6 +15,32 @@
 
 .nav-brand {
     text-shadow: 2px 5px 2px black;
+}
+
+.wrapper {
+    background-image: url(../images/food.jpg);
+    background-size: cover;
+    min-height: 100rem;
+}
+
+.card {
+    border: none;
+    justify-content: space-between;
+}
+
+.card-body {
+    background-color: var(--title-color);
+    ;
+}
+
+.card-title {
+    background-color: var(--title-color);
+    border-radius: 0;
+}
+
+.recipe-list {
+    justify-content: center;
+    align-content: center;
 }
 
 .login-page,
@@ -49,6 +76,13 @@
     text-align: right;
 }
 
+.recipe h3 {
+    color: var(--navbar-color);
+    font-family: serif;
+    font-size: 2rem;
+    font-weight: 200s;
+}
+
 .btn {
     color: white
 }
@@ -66,4 +100,8 @@ footer {
 
 .contact-us {
     color: white;
+}
+
+ol {
+    justify-content: space-between;
 }
