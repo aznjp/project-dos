@@ -1,11 +1,11 @@
-<article class="recipe">
+<article id = "recipe" class="recipe">
   <div class="title">
       <a href="/recipe/{{id}}" class="edit-link"><h3>{{title}}</h3></a>
       <span class = "recipe-info">Created by <strong>{{user.username}} </strong> on <strong>{{format_date created_at}}</strong></span>   
   </div>
-<div>
-<aside class ="recipe-ingredients mt-2 mb-2">{{ingredients}}</aside>
-<aside class ="recipe-instructions mt-2 mb-2">{{instructions}}</aside>
+<div class ="d-flex">
+<aside id = "ingredients" class ="recipe-ingredients mt-2 mb-2 col-4">{{ingredients}}</aside>
+<aside class ="recipe-instructions mt-2 mb-2 col-8">{{instructions}}</aside>
 </div>
   <div class="recipe-comments">
     <a href="/recipe/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>

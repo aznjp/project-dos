@@ -4,6 +4,13 @@ async function newRecipeHandler(event) {
     const title = document.querySelector('input[name="recipe-title"]').value;
     const ingredients = document.querySelector('textarea[name="ingredients"]').value;
     const instructions = document.querySelector('textarea[name="instructions"]').value;
+    // console.log(JSON.stringify({
+    //     title,
+    //     ingredients,
+    //     instructions
+    // }))
+    // console.log(ingredients)
+    // console.log(instructions)
 
     const response = await fetch(`/api/recipes`, {
         method: 'POST',
@@ -16,7 +23,7 @@ async function newRecipeHandler(event) {
             'Content-Type': 'application/json'
         }
     });
-
+    console.log(response)
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {

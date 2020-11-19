@@ -4,7 +4,6 @@ const withAuth = require('../../utils/auth');
 
 
 router.get('/', (req, res) => {
-
     Recipe.findAll({
             attributes: [
                 'id',
@@ -27,7 +26,12 @@ router.get('/', (req, res) => {
                 }
             ]
         })
-        .then(dbRecipeData => res.json(dbRecipeData))
+        .then(function(dbRecipeData) {
+            console.log("========================================== wow ================================")
+            console.log(dbRecipeData.req.body.ingredients)
+            res.json(dbRecipeData)
+            console.log(res.json(dbRecipeData))
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -72,7 +76,6 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
-
 
 router.post('/', withAuth, (req, res) => {
     Recipe.create({
