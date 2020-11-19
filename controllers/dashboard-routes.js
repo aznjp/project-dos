@@ -2,8 +2,6 @@ const router = require('express').Router();
 const { Recipe, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// const multer = require('multer');
-
 router.get('/', withAuth, (req, res) => {
     Recipe.findAll({
             where: {
@@ -14,6 +12,7 @@ router.get('/', withAuth, (req, res) => {
                 'title',
                 'ingredients',
                 'instructions',
+                'recipe_image',
                 'created_at',
             ],
             include: [{
@@ -47,6 +46,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 'title',
                 'ingredients',
                 'instructions',
+                'recipe_image',
                 'created_at',
             ],
             include: [{
@@ -90,6 +90,7 @@ router.get('/new-recipe', withAuth, (req, res) => {
                 'title',
                 'ingredients',
                 'instructions',
+                'recipe_image',
                 'created_at',
             ],
             include: [{
