@@ -1,0 +1,25 @@
+<article>
+  <h2 class = "edit-recipe-h2">
+    Edit Post
+  </h2>
+  <form class="edit-recipe-form border border-dark container rounded card">
+    <div>
+      <h3 class = "edit-recipe-h3">Edit Title</h3>
+      <input name="recipe-title" type="text" class="form-control" rows="3" value="{{recipe.title}}" />
+    </div>
+    <div>
+      <h3 class = "edit-recipe-h3">Edit Ingredients</h3>
+      <textarea name ="ingredients" type ="text" class="form-control" rows="10">{{recipe.ingredients}}</textarea>
+    </div>
+        <div>
+      <h3 class = "edit-recipe-h3">Edit Instructions</h3>
+      <textarea name ="instructions" type ="text" class="form-control" rows="10">{{recipe.instructions}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Update Recipe</button>
+    <button type="button" class="btn btn-danger btn-block delete-post-btn mb-4">Delete Recipe</button>
+  </form>
+</article>
+
+
+<script src="/javascript/edit-recipe.js"></script>
+<script src="/javascript/delete-recipe.js"></script>

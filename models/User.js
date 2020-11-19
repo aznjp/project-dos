@@ -36,7 +36,7 @@ User.init({
         validate: {
             len: [10]
         }
-    }
+    },
 }, {
     hooks: {
         // set up beforeCreate lifecycle "hook" functionality

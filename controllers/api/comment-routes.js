@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Comment.findAll()
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    // expects => {comment_text: "This is the comment", user_id: 1, recipe_id: 2}
     Comment.create({
             comment_text: req.body.comment_text,
             user_id: req.session.user_id,
@@ -22,6 +21,30 @@ router.post('/', withAuth, (req, res) => {
         .catch(err => {
             console.log(err);
             res.status(400).json(err);
+        });
+});
+
+router.put('/:id', withAuth, (req, res) => {
+    Comment.update({
+            comment_text: req.body.comment_text,
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(dbRecipeData => {
+            if (!dbRecipeData) {
+                res.status(404).json({ message: 'No Comments found with this id' });
+                return;
+            } else if (!req.session.user_id) {
+                res.status(404).json({ message: 'This is not your comment!' });
+                return;
+            }
+            res.json(dbRecipeData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
 });
 
@@ -36,6 +59,10 @@ router.delete('/:id', withAuth, (req, res) => {
                 res.status(404).json({ message: 'No comment found with this id!' });
                 return;
             }
+            // else if (!req.session.user_id) {
+            //     res.status(404).json({ message: 'This is not your comment!' });
+            //     return;
+            // }
             res.json(dbCommentData);
         })
         .catch(err => {
