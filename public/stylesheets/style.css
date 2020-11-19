@@ -17,12 +17,6 @@
     text-shadow: 2px 5px 2px black;
 }
 
-.wrapper {
-    background-image: url(../images/food.jpg);
-    background-size: cover;
-    min-height: 100rem;
-}
-
 .card {
     border: white;
 }
