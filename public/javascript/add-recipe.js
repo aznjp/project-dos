@@ -4,13 +4,15 @@ async function newRecipeHandler(event) {
     const title = document.querySelector('input[name="recipe-title"]').value;
     const ingredients = document.querySelector('textarea[name="ingredients"]').value;
     const instructions = document.querySelector('textarea[name="instructions"]').value;
+    const recipe_image = document.querySelector('input[name ="recipe-img"]').files[0].name;
 
     const response = await fetch(`/api/recipes`, {
         method: 'POST',
         body: JSON.stringify({
             title,
             ingredients,
-            instructions
+            instructions,
+            recipe_image
         }),
         headers: {
             'Content-Type': 'application/json'

@@ -24,7 +24,6 @@ Recipe.init({
     },
     // recipe_image: {
     //     type: DataTypes.STRING,
-    //     allowNull: false
     // },
     user_id: {
         type: DataTypes.INTEGER,

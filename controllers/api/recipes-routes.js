@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Recipe, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// const upload = multer({ storage: storage });
 
 router.get('/', (req, res) => {
     Recipe.findAll({
@@ -75,7 +76,9 @@ router.get('/:id', (req, res) => {
         });
 });
 
+
 router.post('/', withAuth, (req, res) => {
+    console.log(req.file)
     Recipe.create({
             title: req.body.title,
             instructions: req.body.instructions,
@@ -89,19 +92,6 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
-router.post('/new-recipes', withAuth, (req, res) => {
-    Recipe.create({
-            title: req.body.title,
-            instructions: req.body.instructions,
-            ingredients: req.body.ingredients,
-            user_id: req.session.user_id
-        })
-        .then(dbRecipeData => res.json(dbRecipeData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
 
 router.put('/:id', withAuth, (req, res) => {
     Recipe.update({
