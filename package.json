@@ -1,41 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "food_blog",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aznjp/project-dos.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/aznjp/project-dos/issues"
-  },
-  "homepage": "https://github.com/aznjp/project-dos#readme",
-  "dependencies": {
-    "@popperjs/core": "^2.5.4",
-    "bcrypt": "^5.0.0",
-    "bootstrap": "^4.5.3",
-    "connect-session-sequelize": "^7.0.4",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "express-session": "^1.17.1",
-    "handlebars": "^4.7.6",
-    "jquery": "^3.5.1",
-    "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
-  },
-  "devDependencies": {}
-}
-=======
     "name": "food_blog",
     "version": "1.0.0",
     "description": "",
@@ -71,4 +34,3 @@
         "sequelize": "^6.3.5"
     }
 }
->>>>>>> 2018862085aab07231669314c57f126c1153f3a8
