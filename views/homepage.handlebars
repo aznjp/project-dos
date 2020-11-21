@@ -1,7 +1,16 @@
-<ol class="recipe-list">
+{{!-- <ol class="recipe-list">
   {{#each recipes as |recipe|}}
   <a>
     {{> recipe-info recipe }}
   </a>
   {{/each}}
-  </ol>
+  </ol> --}}
+
+<h2>List of Recipes</h2>
+<div class="recipe-list">
+  {{#each recipes as |recipe|}}
+  <a>
+    {{> single-recipe-display recipe}}
+  </a>
+  {{/each}}
+</div>
