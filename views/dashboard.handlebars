@@ -1,6 +1,6 @@
 <div class="text-center">
   <h2 class="mb-4" style="font-size:6vw"><strong>DASHBOARD</strong></h2>
-  <button type="submit" class="btn btn-primary"><a href="/dashboard/new-recipe" > Create New Recipe</a></button>
+  <button type="submit" class="btn btn-success"><a href="/dashboard/new-recipe" class="text-white"> Create New Recipe</a></button>
 </div>
 
 
@@ -11,7 +11,7 @@
     {{#each recipes as |recipe|}}
     <li class="mb-3">
       {{> recipe-info recipe}}
-      <a href="/dashboard/edit/{{recipe.id}}" class="edit-link">Edit Recipe</a>
+      <a href="/dashboard/edit/{{recipe.id}}" class="btn btn-success btn-block edit-link">Edit Recipe</a>
     </li>
     {{/each}}
   </ul>
