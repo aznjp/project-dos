@@ -1,110 +1,111 @@
-     :root {
-        --light-text: #ffffff;
-        --navbar-color: #212529;
-        --title-color: #393e46
-    }
-    
-    .navbar a,
-    .navbar a:hover,
-    .navbar a:visited {
-        text-decoration-style: none;
-        font-family: serif;
-        text-shadow: 2px 4px 2px black;
-        color: var(--light-text);
-    }
-    
-    .nav-brand {
-        text-shadow: 2px 5px 2px black;
-    }
-    
-    body {
-        background-image: url(../images/food.jpg);
-        background-size: cover;
-        min-height: 100rem;
-    }
-    
-    .card {
-        border: white;
-    }
-    
-    .card-body {
-        background-color: var(--title-color);
-        ;
-    }
-    
-    .card-title {
-        background-color: var(--title-color);
-        border-radius: 0;
-    }
-    
-    .recipe-list {
-        justify-content: center;
-        align-content: center;
-    }
-    
-    .login-page,
-    .signup-page {
-        margin: 0;
-        padding: 0;
-        background-image: url(../images/cutting-board.jpg);
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .signup-page {
-        background-image: url(../images/cutting-board2.jpg);
-    }
-    
-    .login-card,
-    .signup-card {
-        border: black;
-        box-shadow: 1px 2px 230px 1px black;
-        padding: 20px;
-        margin: 4% auto;
-        border-style: double;
-        text-align: center;
-        color: var(--light-text);
-    }
-    
-    .login-form,
-    .signup-form {
-        text-align: right;
-    }
-    
-    .recipe h3 {
-        color: var(--navbar-color);
-        font-family: serif;
-        font-size: 2rem;
-        font-weight: 200s;
-    }
-    
-    .btn {
-        color: white
-    }
-    
-    footer {
-        background-color: var(--navbar-color);
-    }
-    
-    .footer-title {
-        text-decoration-style: none;
-        font-family: serif;
-        text-shadow: 2px 4px 2px black;
-        color: var(--light-text);
-    }
-    
-    .contact-us {
-        color: white;
-    }
-    
-    .col-2 {
-        background-image: url(https://img2.pngio.com/how-to-check-broken-image-with-jquery-and-ajax-default-png-300_300.png);
-    }
-    
-    .recipe {
-        overflow: hidden;
-    }
+        :root {
+           --light-text: #ffffff;
+           --navbar-color: #212529;
+           --title-color: #393e46
+       }
+       /* header styles */
+       
+       .navbar a,
+       .navbar a:hover,
+       .navbar a:visited {
+           text-decoration-style: none;
+           font-family: serif;
+           text-shadow: 2px 4px 2px black;
+           color: var(--light-text);
+       }
+       
+       .nav-brand {
+           text-shadow: 2px 5px 2px black;
+       }
+       /* body */
+       
+       body {
+           background-image: url(../images/food.jpg);
+           background-size: cover;
+       }
+       /* recipe card styles */
+       
+       .card {
+           border: white;
+       }
+       
+       .card-body {
+           background-color: var(--title-color);
+           ;
+       }
+       
+       .card-title {
+           background-color: var(--title-color);
+           border-radius: 0;
+       }
+       
+       .recipe-list {
+           justify-content: center;
+           align-content: center;
+       }
+       
+       .col-2 {
+           background-image: url(https://img2.pngio.com/how-to-check-broken-image-with-jquery-and-ajax-default-png-300_300.png);
+           background-size: cover;
+       }
+       
+       .recipe h3 {
+           color: white;
+           font-family: serif;
+           font-size: 2rem;
+           font-weight: 200s;
+       }
+       /* login and signup styles */
+       
+       .login-page,
+       .signup-page {
+           margin: 0;
+           padding: 0;
+           background-image: url(../images/cutting-board.jpg);
+           background-size: cover;
+           background-position: center;
+           height: 100vh;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       }
+       
+       .signup-page {
+           background-image: url(../images/cutting-board2.jpg);
+       }
+       
+       .login-card,
+       .signup-card {
+           border: black;
+           box-shadow: 1px 2px 230px 1px black;
+           padding: 20px;
+           margin: 4% auto;
+           border-style: double;
+           text-align: center;
+           color: var(--light-text);
+       }
+       
+       .login-form,
+       .signup-form {
+           text-align: right;
+       }
+       
+       .btn {
+           color: white
+       }
+       /* footer styling */
+       
+       footer {
+           background-color: var(--navbar-color);
+       }
+       
+       .footer-title {
+           text-decoration-style: none;
+           font-family: serif;
+           text-shadow: 2px 4px 2px black;
+           color: var(--light-text);
+       }
+       
+       .contact-us {
+           color: white;
+       }
