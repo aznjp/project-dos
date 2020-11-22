@@ -1,11 +1,12 @@
+const { urlencoded } = require("express");
+
 async function newRecipeHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('input[name="recipe-title"]').value;
     const ingredients = document.querySelector('textarea[name="ingredients"]').value;
     const instructions = document.querySelector('textarea[name="instructions"]').value;
-    const recipe_image = document.getElementById("blah").src
-
+    const recipe_image = document.getElementById("blah").src;
     console.log(recipe_image)
     const response = await fetch(`/api/recipes`, {
         method: 'POST',
@@ -26,6 +27,5 @@ async function newRecipeHandler(event) {
         alert(response.statusText);
     }
 }
-
 
 document.querySelector('.new-recipe-form').addEventListener('submit', newRecipeHandler);
