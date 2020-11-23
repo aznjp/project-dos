@@ -9,17 +9,17 @@
   <div class="card-body row">
      <img id="recipe-image" class="d-inline-flex col-3" src= {{recipe_image}} width="600">
      
-     <div class ="recipe-ingredients d-inline-flex col-9 float-right align-text-right">
+     <div class ="recipe-ingredients overflow-auto d-inline-flex col-9 float-right align-text-right">
 
        <h2>INGREDIENTS</h2>
-             {{ingredients}}
+             {{{ingredients}}}
   </div>
  
   </div>
 
-  <div class ="recipe-instructions text-align-left">
+  <div class ="recipe-instructions overflow-auto text-align-left">
     <h2>INSTRUCTIONS</h2><br>
-    {{instructions}}
+    {{{instructions}}}
   </div>
 
     <a href="/recipe/{{id}}" class="btn btn-success btn-block comment-btn">{{comments.length}} {{format_plural "comment" comments.length}}</a>

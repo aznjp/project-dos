@@ -9,11 +9,11 @@
     </div>
     <div>
       <h3 class = "edit-recipe-h3">Edit Ingredients</h3>
-      <textarea name ="ingredients" type ="text" class="form-control" rows="10">{{recipe.ingredients}}</textarea>
+      <div contenteditable ="true" name ="ingredients" class ="editable" type ="text">{{{recipe.ingredients}}}</div>
     </div>
         <div>
       <h3 class = "edit-recipe-h3">Edit Instructions</h3>
-      <textarea name ="instructions" type ="text" class="form-control" rows="10">{{recipe.instructions}}</textarea>
+      <div contenteditable ="true" name ="instructions" class ="editable" type ="text">{{{recipe.instructions}}}</div>
     </div>
     <div class="mb-5 mt-4">
       <h3 class = "edit-image-h3">Edit Image</h3>
