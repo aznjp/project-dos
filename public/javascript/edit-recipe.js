@@ -2,11 +2,13 @@ async function editFormHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('input[name="recipe-title"]').value.trim();
-    const ingredients = document.querySelector('textarea[name="ingredients"]').value;
-    const instructions = document.querySelector('textarea[name="instructions"]').value;
+    const preParseIngredients = document.querySelector('div[name="ingredients"]').innerHTML;
+    const preParseInstructions = document.querySelector('div[name="instructions"]').innerHTML;
     const recipe_image = document.getElementById("blah").src
-
+    const ingredients = preParseIngredients.replace(/(\r\n|\n|\r)/gm, "<br />");
+    const instructions = preParseInstructions.replace(/(\r\n|\n|\r)/gm, "<br />");
     const id = window.location.toString().split('/')[
+
         window.location.toString().split('/').length - 1
     ];
     const response = await fetch(`/api/recipes/${id}`, {
