@@ -31,6 +31,7 @@ router.get('/', withAuth, (req, res) => {
         })
         .then(dbRecipeData => {
             const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
+            console.log(recipes);
             res.render('dashboard', { recipes, loggedIn: true });
         })
         .catch(err => {
