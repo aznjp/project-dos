@@ -9,6 +9,11 @@ async function deleteCommentHandler(event) {
     });
 
     if (response.ok) {
+        await Swal.fire(
+            'Comment Deleted',
+            'Hope the next one is better',
+            'warning'
+        )
         document.location.reload();
     } else {
         alert(response.statusText);

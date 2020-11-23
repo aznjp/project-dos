@@ -19,6 +19,11 @@ async function commentFormHandler(event) {
         });
 
         if (response.ok) {
+            await Swal.fire(
+                'NICE!',
+                'Comment is a GO!!!',
+                'success'
+            )
             document.location.reload();
         } else {
             alert(response.statusText);

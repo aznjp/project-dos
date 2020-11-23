@@ -25,12 +25,11 @@ async function editFormHandler(event) {
     });
 
     if (response.ok) {
-        Swal.fire({
+        await Swal.fire({
             position: 'top-end',
             icon: 'success',
             title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
+            timer: 1000
         })
         document.location.replace('/dashboard/');
     } else {
