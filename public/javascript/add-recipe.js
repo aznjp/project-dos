@@ -21,6 +21,12 @@ async function newRecipeHandler(event) {
         }
     });
     if (response.ok) {
+
+        await Swal.fire(
+            'Good Job!',
+            'Recipe is now uploaded!!!!',
+            'success'
+        )
         document.location.replace('/dashboard');
     } else {
         alert(response.statusText);

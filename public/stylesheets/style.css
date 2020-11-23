@@ -1,4 +1,5 @@
-                         :root {
+
+                     :root {
                             --light-text: #ffffff;
                             --navbar-color: #212529;
                             --title-color: #393e46;
@@ -131,3 +132,4 @@
                         .recipe-instructions {
                             height: 300px;
                         }
+
