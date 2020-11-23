@@ -1,23 +1,17 @@
 async function deleteCommentHandler(event) {
     event.preventDefault();
-
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
-    const response = await fetch(`/api/comments/${id}`, {
+    const id = document.getElementById("comment-number").getAttribute("href")
+    console.log(id)
+    const response = await fetch(`/api/${id}`, {
         method: 'DELETE'
     });
 
     if (response.ok) {
-        await Swal.fire(
-            'Comment is deleted',
-            'Goodbye',
-            'warning'
-        )
         document.location.reload();
     } else {
         alert(response.statusText);
     }
+
 }
 
 document.querySelector('.delete-comment-btn').addEventListener('click', deleteCommentHandler);
