@@ -17,10 +17,8 @@
     text-shadow: 2px 5px 2px black;
 }
 
-.wrapper {
-    background-image: url(../images/food.jpg);
-    background-size: cover;
-    min-height: 100rem;
+body {
+    background-image: url(../images/body-background.png);
 }
 
 .card {
@@ -108,3 +106,24 @@ footer {
 .recipe {
     overflow: hidden;
 }
+
+.username {
+    color: rgb(247, 107, 107);
+    text-transform: capitalize;
+}
+
+.homepage-container {
+    background-color: white;
+    border: 4px solid #fdae40;
+}
+
+.homepage-container .carousel {
+    border-bottom: 4px solid #fdae40;
+}
+/* html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  display: flex;
+} */
