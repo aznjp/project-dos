@@ -18,7 +18,7 @@
     <div class="mb-5 mt-4">
       <h3 class = "edit-image-h3">Edit Image</h3>
       <input type="file" id="recipe-img" name="recipe-img" onchange="readURL(this)" />
-      <img id="blah" src="#" width="300" height="300"/>
+      <img id="blah" src="{{recipe.recipe_image}}" width="300" height="300"/>
     </div>
     <button type="submit" class="btn btn-primary btn-block">Update Recipe</button>
     <button type="button" class="btn btn-danger btn-block delete-recipe-btn mb-4">Delete Recipe</button>
