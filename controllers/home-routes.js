@@ -2,7 +2,6 @@ const router = require('express').Router()
 const { Recipe, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
-    console.log('======================');
     Recipe.findAll({
             attributes: [
                 'id',
@@ -28,7 +27,6 @@ router.get('/', (req, res) => {
         })
         .then(dbRecipeData => {
             const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
-
             res.render('homepage', {
                 recipes,
                 loggedIn: req.session.loggedIn
@@ -74,9 +72,10 @@ router.get('/recipe/:id', (req, res) => {
             }
 
             const recipe = dbRecipeData.get({ plain: true });
-
+            const ingredientList = (recipe.ingredients || '').split(',')
             res.render('single-recipe', {
                 recipe,
+                ingredientList,
                 loggedIn: req.session.loggedIn
             });
         })
