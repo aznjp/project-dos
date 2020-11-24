@@ -4,7 +4,7 @@
    <span class = "recipe-info">Created by <strong>{{user.username}} </strong> on <strong>{{format_date created_at}}</strong></span>   
 </div>
   <div class="card-body row">
-     <img id="recipe-image" class="d-inline-flex col-lg-3 col-12" src="./uploads/IU.jpg"   width="600">
+     <img id="recipe-image" class="d-inline-flex col-lg-3 col-12" src="./uploads/{{recipe_image}}"   width="600">
      
      <div class ="recipe-ingredients overflow-auto d-inline-flex col-lg-9 col-12 float-right align-text-right">
 
@@ -22,4 +22,3 @@
     <a href="/recipe/{{id}}" class="btn btn-success btn-block comment-btn">{{comments.length}} {{format_plural "comment" comments.length}}</a>
 </article>
 
-{{!-- {{recipe_image}} --}}
