@@ -1,27 +1,20 @@
 async function newRecipeHandler(event) {
     event.preventDefault();
+    console.log(event)
+        // const title = document.querySelector('input[name="recipe-title"]').value;
+        // const preParseIngredients = document.querySelector('textarea[name="ingredients"]').value;
+        // const preParseInstructions = document.querySelector('textarea[name="instructions"]').value;
+        // const recipe_image = document.querySelector('input[name="recipe-img"]').files[0].name
+        //     // const recipe_image = document.getElementById("blah").src
+        // const ingredients = preParseIngredients.replace(/(\r\n|\n|\r)/gm, "<br/>");
+        // const instructions = preParseInstructions.replace(/(\r\n|\n|\r)/gm, "<br/>");
 
-    const title = document.querySelector('input[name="recipe-title"]').value;
-    const preParseIngredients = document.querySelector('textarea[name="ingredients"]').value;
-    const preParseInstructions = document.querySelector('textarea[name="instructions"]').value;
-    const recipe_image = document.querySelector('input[name="recipe-img"]').files[0].name
-        // const recipe_image = document.getElementById("blah").src
-    const ingredients = preParseIngredients.replace(/(\r\n|\n|\r)/gm, "<br/>");
-    const instructions = preParseInstructions.replace(/(\r\n|\n|\r)/gm, "<br/>");
-
-    console.log(recipe_image)
+    let form = document.querySelector("#recipe-form")
+    let formData = new FormData(form)
 
     const response = await fetch(`/api/recipes`, {
         method: 'POST',
-        body: JSON.stringify({
-            title,
-            ingredients,
-            instructions,
-            recipe_image
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        body: formData
     });
     if (response.ok) {
 

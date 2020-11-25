@@ -1,8 +1,8 @@
-  <form action="/api/recipes" method="post" enctype="multipart/form-data" class="new-recipe-form container border border-dark rounded card">
+  <form method="post" enctype="multipart/form-data" id="recipe-form" class="new-recipe-form container border border-dark rounded card">
     <h2>Create New Recipe</h2>
     <div>
-      <label for="recipe-title">Title</label>
-      <input type="text" id="recipe-title"  class="form-control" rows="3" name="recipe-title" />
+      <label for="title">Title</label>
+      <input type="text" class="form-control" rows="3" name="title" />
     </div>
     <div>
       <label for="ingredients">Ingredients</label>
@@ -13,7 +13,7 @@
       <textarea id="instructions" name="instructions" class="form-control" rows="10"></textarea>
     </div>
     <div>
-      <input type="file" id="recipe-img" name="recipe-img" onchange="readURL(this)" />
+      <input type="file" name="recipe-img" onchange="readURL(this)" />
       <img id="blah" src="#"/>
     </div>
 

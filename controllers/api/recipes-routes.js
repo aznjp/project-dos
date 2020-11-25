@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const { Recipe, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
+const path = require('path')
 
 const multer = require('multer')
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, '../../public/uploads/')
+        cb(null, 'public/uploads/')
     },
     filename: function(req, file, cb) {
         cb(null, Date.now() + path.extname(file.originalname)) //Appending extension
@@ -98,12 +99,15 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
-
+    console.log(req.file)
+    req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
+    req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
+    // console.log(req)
     Recipe.create({
             title: req.body.title,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
-            recipe_image: req.body.recipe_image,
+            recipe_image: req.file.filename,
             user_id: req.session.user_id
         })
         .then(dbRecipeData => res.json(dbRecipeData))
@@ -114,12 +118,14 @@ router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
 });
 
 
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', upload.single('recipe-img'), withAuth, (req, res) => {
+    req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
+    req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
     Recipe.update({
             title: req.body.title,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
-            recipe_image: req.body.recipe_image,
+            recipe_image: req.file.filename,
         }, {
             where: {
                 id: req.params.id
@@ -139,7 +145,6 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
-    console.log('id', req.params.id);
     Recipe.destroy({
             where: {
                 id: req.params.id
