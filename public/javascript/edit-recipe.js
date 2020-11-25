@@ -10,14 +10,17 @@ async function editFormHandler(event) {
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
-    let form = document.querySelector("#recipe-form")
-    let formData = new FormData(form)
 
+    let form = document.querySelector("#edit-recipe-form")
+    let formData = new FormData(form)
+    console.log(formData)
     const response = await fetch(`/api/recipes/${id}`, {
         method: 'PUT',
         body: formData,
 
     });
+
+    console.log(response)
 
     if (response.ok) {
         await Swal.fire({
@@ -32,4 +35,4 @@ async function editFormHandler(event) {
     }
 }
 
-document.querySelector('.edit-recipe-form').addEventListener('submit', editFormHandler);
+document.querySelector('#edit-recipe-form').addEventListener('submit', editFormHandler);

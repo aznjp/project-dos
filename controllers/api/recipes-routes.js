@@ -102,12 +102,13 @@ router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
     console.log(req.file)
     req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
-    // console.log(req)
+    console.log(req.body.ingredients)
+        // console.log(req)
     Recipe.create({
             title: req.body.title,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
-            recipe_image: req.file.filename,
+            recipe_image: req.file.path,
             user_id: req.session.user_id
         })
         .then(dbRecipeData => res.json(dbRecipeData))
@@ -119,13 +120,14 @@ router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
 
 
 router.put('/:id', upload.single('recipe-img'), withAuth, (req, res) => {
-    req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
-    req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
+    // req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
+    // req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
+    console.log(req.file)
     Recipe.update({
             title: req.body.title,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
-            recipe_image: req.file.filename,
+            recipe_image: req.file.path,
         }, {
             where: {
                 id: req.params.id

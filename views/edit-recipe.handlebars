@@ -2,18 +2,18 @@
   <h2 class = "edit-recipe-h2">
     Edit Post
   </h2>
-  <form class="edit-recipe-form border border-dark container rounded card">
+  <form id="edit-recipe-form" method="put" enctype="multipart/form-data" class="border border-dark container rounded card">
     <div>
       <h3 class = "edit-recipe-h3">Edit Title</h3>
       <input name="title" type="text" class="form-control" rows="3" value="{{recipe.title}}" />
     </div>
     <div>
       <h3 class = "edit-recipe-h3">Edit Ingredients</h3>
-      <div contenteditable ="true" name ="ingredients" class ="editable" type ="text">{{{recipe.ingredients}}}</div>
+      <textarea name="ingredients" class="form-control" rows="10">{{recipe.ingredients}}</textarea>
     </div>
         <div>
       <h3 class = "edit-recipe-h3">Edit Instructions</h3>
-      <div contenteditable ="true" name ="instructions" class ="editable" type ="text">{{{recipe.instructions}}}</div>
+      <textarea name="instructions" class="form-control" rows="10">{{recipe.instructions}}</textarea>
     </div>
     <div class="mb-5 mt-4">
       <h3 class = "edit-image-h3">Edit Image</h3>

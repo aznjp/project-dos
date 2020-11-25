@@ -140,6 +140,7 @@ footer {
 .recipe-ingredients,
 .recipe-instructions {
     height: 300px;
+    white-space: pre-line;
 }
 
 ol {
