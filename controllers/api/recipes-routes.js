@@ -6,7 +6,7 @@ const multer = require('multer')
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, '../../public/uploads')
+        cb(null, '../../public/uploads/')
     },
     filename: function(req, file, cb) {
         cb(null, Date.now() + path.extname(file.originalname)) //Appending extension
@@ -97,7 +97,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
 
     Recipe.create({
             title: req.body.title,
