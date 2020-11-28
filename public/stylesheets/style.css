@@ -130,10 +130,9 @@ body {
   display: flex;
 } */
 
-.recipe-ingredients,
-.recipe-instructions {
-    height: 300px;
+.recipe-block {
     white-space: pre-line;
+    overflow: hidden
 }
 
 ol {
