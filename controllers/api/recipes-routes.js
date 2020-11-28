@@ -99,11 +99,8 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
-    console.log(req.file)
     req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
-    console.log(req.body.ingredients)
-        // console.log(req)
     Recipe.create({
             title: req.body.title,
             instructions: req.body.instructions,
@@ -120,9 +117,8 @@ router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
 
 
 router.put('/:id', upload.single('recipe-img'), withAuth, (req, res) => {
-    // req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
-    // req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
-    console.log(req.file)
+    req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
+    req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
     Recipe.update({
             title: req.body.title,
             instructions: req.body.instructions,
