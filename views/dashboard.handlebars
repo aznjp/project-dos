@@ -1,21 +1,33 @@
-<div class="text-center">
+
+<div class="text-center mb-4">
   <h2 class="mb-4" style="font-size:6vw"><strong>DASHBOARD</strong></h2>
-  <button type="submit" class="btn btn-success"><a href="/dashboard/new-recipe" class="text-white"> Create New Recipe</a></button>
+  <a class="btn btn-primary" href="/dashboard/new-recipe" >Create New Recipe</a>
 </div>
-
-
-{{#if recipes.length}}
-<section class = "your-recipe text-center">
-  <h2>Your Recipes</h2>
-  <ul class="text-left">
-    {{#each recipes as |recipe|}}
-    <li class="mb-3">
-      {{> recipe-info recipe}}
-      <a href="/dashboard/edit/{{recipe.id}}" class="btn btn-success btn-block edit-link">Edit Recipe</a>
-    </li>
-    {{/each}}
-  </ul>
-</section>
-{{/if}}
+<div class="container">
+  {{#if recipes.length}}
+  <h2 class="text-center">Your Recipes</h2>
+  {{#each recipes as |recipe|}}
+    <div class="row no-gutters mb-3">
+      <div class="col-auto mr-2">
+        <img src="{{recipe.recipe_image}}" width="50" height="50" />
+      </div>
+      <div class="col">
+        <span class="d-block">
+          <a href="/recipe/{{recipe.id}}">{{recipe.title}}</a>
+          <a class="float-right" href="/dashboard/edit/{{recipe.id}}">Edit</a>
+        </span>
+        <span class="d-block text-muted">
+          Created by: {{recipe.user.username}} on <strong>{{format_date recipe.created_at}}</strong>
+        </span>
+        <span class="d-block">
+          <a href="/recipe/{{recipe.id}}">
+            {{recipe.comments.length}} {{format_plural "comment" recipe.comments.length}}
+          </a>
+        </span>
+      </div>
+    </div>
+  {{/each}}
+  {{/if}}
+</div>
 
 <script src="/javascript/add-recipe.js"></script>

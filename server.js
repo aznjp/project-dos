@@ -53,6 +53,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/public/uploads", express.static(path.join(__dirname, 'public/uploads')));
 app.use("/dashboard/public/uploads", express.static(path.join(__dirname, 'public/uploads')));
+app.use("/recipe/public/uploads", express.static(path.join(__dirname, 'public/uploads')));
 
 app.use(require('./controllers/'));
 
