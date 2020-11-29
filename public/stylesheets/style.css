@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 :root {
     --light-text: #ffffff;
     --navbar-color: #212529;
-    --title-color: #393e46
+    --title-color: #393e46;
+    --green-color: rgb(72, 175, 72);
 }
 
 .navbar a,
@@ -114,11 +116,11 @@ footer {
 
 .homepage-container {
     background-color: white;
-    border: 4px solid #fdae40;
+    border: 4px solid var(--green-color);
 }
 
 .homepage-container .carousel {
-    border-bottom: 4px solid #fdae40;
+    border-bottom: 4px solid var(--green-color);
 }
 
 
@@ -141,4 +143,17 @@ ol {
 
 ul {
     list-style: none;
+}
+
+h5 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 30px;
+}
+
+.carousel-caption {
+    background-color: var(--green-color);
+    width: 100%;
+    left: 0%;
+    right: 0%;
+    height: 115px;
 }

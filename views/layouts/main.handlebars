@@ -15,24 +15,24 @@
 
 <body>
   <div class="container">
-    <header>
+    <header class="bg-success">
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link active" href="/">Homepage</a>
+          <a class="nav-link text-white active" href="/">Homepage</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/dashboard">Dashboard</a>
+          <a class="nav-link text-white active" href="/dashboard">Dashboard</a>
         </li>
         {{#if loggedIn}}
           <li class="nav-item">
-            <a class="nav-link" href="#" id="logout">Logout</a>
+            <a class="nav-link text-white" href="#" id="logout">Logout</a>
           </li>
         {{else}}
           <li class="nav-item">
-            <a class="nav-link" href="/login" id="logout">Login</a>
+            <a class="nav-link text-white" href="/login" id="logout">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/signup" id="logout">Sign Up</a>
+            <a class="nav-link text-white" href="/signup" id="logout">Sign Up</a>
           </li>
         {{/if}}
       </ul>
@@ -41,6 +41,7 @@
     <div class="wrapper">
         {{{body}}}
     </div>
+    
     <footer>
       <div class="container row">
         <div class="footer-title col-8">
@@ -54,6 +55,7 @@
     {{#if loggedIn}}
       <script src="/javascript/logout.js"></script>
     {{/if}}
+    <script src="/javascript/delete-comment.js"></script>
   </div>
   
 </body>
