@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
-:root {
+ :root {
     --light-text: #ffffff;
     --navbar-color: #212529;
     --title-color: #393e46;
@@ -119,15 +119,6 @@ footer {
     border-bottom: 4px solid var(--green-color);
 }
 
-
-/* html {
-  height: 100%;
-}
-body {
-  min-height: 100%;
-  display: flex;
-} */
-
 .recipe-block {
     white-space: pre-line;
     overflow: hidden
@@ -143,7 +134,6 @@ ul {
 
 h5 {
     font-family: 'Russo One', sans-serif;
-    font-size: 30px;
 }
 
 .carousel-caption {
@@ -151,5 +141,75 @@ h5 {
     width: 100%;
     left: 0%;
     right: 0%;
-    height: 115px;
+}
+
+
+/* MEDIA QUERIES FOR CUSTOMIZING CAROUSEL SIZES */
+
+@media (max-width: 575.98px) {
+    .carousel-image-size {
+        height: 300px;
+    }
+    .carousel-caption {
+        height: 70px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    h5 {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .carousel-image-size {
+        height: 350px;
+    }
+    .carousel-caption {
+        height: 75px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    h5 {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .carousel-image-size {
+        height: 400px;
+    }
+    .carousel-caption {
+        height: 80px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    h5 {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .carousel-image-size {
+        height: 500px;
+    }
+    .carousel-caption {
+        height: 90px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    h5 {
+        font-size: 26px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .carousel-image-size {
+        height: 615px;
+    }
+    .carousel-caption {
+        height: 115px;
+    }
+    h5 {
+        font-size: 30px;
+    }
 }
