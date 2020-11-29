@@ -20,7 +20,7 @@
 }
 
 body {
-    background-image: url(../images/body-background.png);
+    background-image: url(../images/background.jpg);
 }
 
 .card {
@@ -130,6 +130,7 @@ ol {
 
 ul {
     list-style: none;
+    align-items: inherit;
 }
 
 h5 {
@@ -141,6 +142,15 @@ h5 {
     width: 100%;
     left: 0%;
     right: 0%;
+}
+
+#navbarSupportedContent {
+    justify-content: flex-end;
+}
+
+.burger-icon {
+    height: 40px;
+    width: 50px;
 }
 
 
