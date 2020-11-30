@@ -21,6 +21,7 @@
 
 body {
     background-image: url(../images/background.jpg);
+    background-size: cover;
 }
 
 .card {
@@ -119,11 +120,6 @@ footer {
     border-bottom: 4px solid var(--green-color);
 }
 
-.recipe-block {
-    white-space: pre-line;
-    overflow: hidden
-}
-
 ol {
     list-style: none;
 }
@@ -153,6 +149,11 @@ h5 {
     width: 50px;
 }
 
+.recipe-block {
+    white-space: pre-line;
+    overflow: hidden
+}
+
 
 /* MEDIA QUERIES FOR CUSTOMIZING CAROUSEL SIZES */
 
@@ -167,6 +168,8 @@ h5 {
     }
     h5 {
         font-size: 20px;
+        margin-bottom: 0;
+        margin-top: 0.5rem;
     }
 }
 
@@ -181,6 +184,8 @@ h5 {
     }
     h5 {
         font-size: 22px;
+        margin-bottom: 0;
+        margin-top: 0.5rem;
     }
 }
 

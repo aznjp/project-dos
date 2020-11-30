@@ -1,4 +1,4 @@
-<div class="homepage-container">
+<div class="homepage-container mt-3 mb-3">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       {{#each recipes as |recipe|}}
@@ -42,10 +42,10 @@
       <div class="row">
         {{#each recipes as |recipe|}}
         <div class="col-12 col-md-4 mb-3 row no-gutters">
-          <div class="col-3">
+          <div class="col-4">
             <img class="d-block w-100" src="{{recipe.recipe_image}}" height="100" alt="Image">
           </div>
-          <div class="col-9 pl-1">
+          <div class="col-8 pl-1">
             <a href="/recipe/{{recipe.id}}">{{recipe.title}}</a><br />
             By: <span class="username">{{recipe.user.username}}</span>
           </div>

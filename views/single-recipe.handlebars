@@ -1,8 +1,8 @@
-<div class="row no-gutters mb-3">
-  <div class="col-auto mr-2">
+<div class="row no-gutters mb-3 mt-3">
+  <div class="col-auto mr-2 mt-3">
     <img src="{{recipe.recipe_image}}" height="100" />
   </div>
-  <div class="col">
+  <div class="col mt-3">
     <span class="d-block">
       <a href="/recipe/{{recipe.id}}">{{recipe.title}}</a>
     </span>
@@ -24,9 +24,9 @@
 
 {{#if loggedIn}}
 <form class="comment-form">
-  <div class="mb-5">
+  <div class="mb-3">
     <textarea name="comment-body" class="form-control d-block" rows="5"></textarea>
-    <button type="submit" class ="btn btn-primary btn-block">Add Comment</button>
+    <button type="submit" class ="btn btn-success btn-block">Add Comment</button>
   </div>
 </form>
 {{/if}}
