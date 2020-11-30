@@ -7,8 +7,8 @@ function readURL(input) {
             //if you don't want to use the jquery cdn 
             $('#blah')
                 .attr('src', e.target.result)
-                .width(300)
-                .height(300);
+                .width(250)
+                .height(250);
 
         };
 
