@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
                 'title',
                 'ingredients',
                 'instructions',
+                'description',
                 'recipe_image',
                 'created_at',
             ],
@@ -67,6 +68,7 @@ router.get('/:id', (req, res) => {
                 'title',
                 'ingredients',
                 'instructions',
+                'description',
                 'recipe_image',
                 'created_at',
             ],
@@ -101,10 +103,12 @@ router.get('/:id', (req, res) => {
 router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
     req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
+    req.body.description.replace(/(\r\n|\n|\r)/gm, "<br />");
     Recipe.create({
             title: req.body.title,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
+            description: req.body.description,
             recipe_image: req.file.path,
             user_id: req.session.user_id
         })
@@ -119,10 +123,12 @@ router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
 router.put('/:id', upload.single('recipe-img'), withAuth, (req, res) => {
     req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
+    req.body.description.replace(/(\r\n|\n|\r)/gm, "<br />");
     Recipe.update({
             title: req.body.title,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
+            description: req.body.description,
             recipe_image: req.file.path,
         }, {
             where: {
