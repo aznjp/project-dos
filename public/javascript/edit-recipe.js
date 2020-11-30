@@ -13,8 +13,6 @@ async function editFormHandler(event) {
 
     });
 
-    console.log(response)
-
     if (response.ok) {
         await Swal.fire({
             position: 'top-end',

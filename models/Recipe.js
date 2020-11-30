@@ -29,6 +29,10 @@ Recipe.init({
     recipe_image: {
         type: DataTypes.BLOB("long"),
     },
+    cloudinary_id: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
     user_id: {
         type: DataTypes.INTEGER,
         references: {
