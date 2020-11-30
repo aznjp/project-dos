@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Recipe, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 const path = require('path')
-
+const cloudinary = require("../../utils/cloudinary")
 const multer = require('multer')
 
 const storage = multer.diskStorage({
@@ -32,6 +32,7 @@ router.get('/', (req, res) => {
                 'instructions',
                 'description',
                 'recipe_image',
+                'cloudinary_id',
                 'created_at',
             ],
             include: [{
@@ -70,6 +71,7 @@ router.get('/:id', (req, res) => {
                 'instructions',
                 'description',
                 'recipe_image',
+                'cloudinary_id',
                 'created_at',
             ],
             include: [{
@@ -100,16 +102,20 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
+router.post('/', upload.single('recipe-img'), withAuth, async(req, res) => {
     req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.description.replace(/(\r\n|\n|\r)/gm, "<br />");
+
+    const result = await cloudinary.uploader.upload(req.file.path);
+    console.log(result)
     Recipe.create({
             title: req.body.title,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
             description: req.body.description,
-            recipe_image: req.file.path,
+            recipe_image: result.secure_url,
+            cloudinary_id: result.public_id,
             user_id: req.session.user_id
         })
         .then(dbRecipeData => res.json(dbRecipeData))
@@ -120,16 +126,23 @@ router.post('/', upload.single('recipe-img'), withAuth, (req, res) => {
 });
 
 
-router.put('/:id', upload.single('recipe-img'), withAuth, (req, res) => {
+router.put('/:id', upload.single('recipe-img'), withAuth, async(req, res) => {
+    let recipe = await Recipe.findByPk(req.params.id);
+    await cloudinary.uploader.destroy(recipe.cloudinary_id);
+
     req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.description.replace(/(\r\n|\n|\r)/gm, "<br />");
+
+    const result = await cloudinary.uploader.upload(req.file.path);
+    console.log(result)
     Recipe.update({
             title: req.body.title,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
             description: req.body.description,
-            recipe_image: req.file.path,
+            recipe_image: result.secure_url,
+            cloudinary_id: result.public_id,
         }, {
             where: {
                 id: req.params.id
@@ -146,9 +159,13 @@ router.put('/:id', upload.single('recipe-img'), withAuth, (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
+
 });
 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', withAuth, async(req, res) => {
+    let recipe = await Recipe.findByPk(req.params.id);
+    await cloudinary.uploader.destroy(recipe.cloudinary_id);
+
     Recipe.destroy({
             where: {
                 id: req.params.id

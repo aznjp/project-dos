@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
                 'instructions',
                 'description',
                 'recipe_image',
+                'cloudinary_id',
                 'created_at',
             ],
             include: [{
@@ -53,6 +54,7 @@ router.get('/recipe/:id', (req, res) => {
                 'instructions',
                 'description',
                 'recipe_image',
+                'cloudinary_id',
                 'created_at',
             ],
             include: [{
