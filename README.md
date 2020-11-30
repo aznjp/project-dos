@@ -47,19 +47,19 @@ An application that will run in the browser and is updated based on the actions 
 <BR>
 
 ## HOMEPAGE
-![Daintly](./public/images/screenshot1.png)
+![Daintly](./public/images/screenshots1.png)
 <br>
 
 ## DASHBOARD
-![Daintly](./public/images/screenshot2.png)
+![Daintly](./public/images/screenshots2.png)
 <br>
 
 ## NEW RECIPE FORM
-![Daintly](./public/images/screenshot3.png)
+![Daintly](./public/images/screenshots3.png)
 <br>
 
 ## SINGLE POST
-![Daintly](./public/images/screenshot4.png)
+![Daintly](./public/images/screenshots4.png)
 <br>
 
 
