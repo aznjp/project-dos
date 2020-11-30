@@ -15,9 +15,18 @@ async function loginFormHandler(event) {
         });
 
         if (response.ok) {
+            await Swal.fire(
+                'Welcome back!',
+                'We are glad to see you again!',
+                'success'
+            )
             document.location.replace('/dashboard/');
         } else {
-            alert(response.statusText);
+            await Swal.fire(
+                'Info Missing!',
+                'Wrong email or password!',
+                'info'
+            )
         }
     }
 }

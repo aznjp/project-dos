@@ -7,47 +7,89 @@
   <title>Dainty Food Blog</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/solid.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
-      <header>
-        <nav class="navbar is-fixed-top row bg-dark">
-          
-        <h2 class="nav-brand col-7 ">
-          <a href="/">Dainty</a>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container-fluid justify-content-center">
+      <a class="navbar-brand navbar-nav" href="/"><img src="../../public/images/Logo.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="../../public/images/hamburger.png" class="burger-icon rounded">
+      </button>
 
-        </h2>
-          <a href="/">Homepage</a>
-          <a href="/dashboard">Dashboard</a>
-          {{#if loggedIn}}
-          <button id="logout" class="btn-no-style">Logout</button>
-          {{else}}
-          <a href="/login">Login</a>
-          <a href="/signup">Sign Up</a>
-          {{/if}}
-        </nav>
-      </header>
-
-      {{#if loggedIn}}
-        <script src="/javascript/logout.js"></script>
-      {{/if}}
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="/"><img src="../../public/images/homepage.png"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/dashboard"><img src="../../public/images/dashboard.png"></a>
+        </li>
+        {{#if loggedIn}}
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="logout"><img src="../../public/images/logout.png"></a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/login" id="logout"><img src="../../public/images/login.png"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup" id="logout"><img src="../../public/images/signup.png"></a>
+          </li>
+        {{/if}}
+      </ul>
+      </div>
+      </div>
+    </nav>
+    
+  <div class="container">
 
     <div class="wrapper">
         {{{body}}}
     </div>
- 
-   
-      <footer>
-        <div class="container row">
-         <div class="footer-title col-8">
-          <h3>Come back and cook anytime!</h3>
-         </div>
-         <div class="contact-us col-4">
-            Contact us at: daintyblog@gmail.com
-         </div>
-         </div>
-      </footer>
+    
+    {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
+    <script src="/javascript/delete-comment.js"></script>
+  </div>
+  
+<footer class="bg-dark">
+  <div class="container text-center text-md-left pt-3 text-light">
+    <div class="row">
+        <div class="col-md-6 col-lg-8">
+          <h6 class="text-uppercase font-weight-bold">Our Story</h6>
+          <p>When the COVID-19 pandemic initially occured, the ability to eat out at restaurants became obsolete. 
+            We picked up cooking as a hobby and wanted to share our newfound recipes for others and that is how our blog was born.
+            We created this food blog so that others could share their delicious recipes for others to try and to share cultures.
+          </p>
+        </div>
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="https://github.com/aznjp/project-dos" class="fas fa-home mr-3 text-success"></a>
+          Github
+        </p>
+
+        <p>
+          <a href="mailto:jpark103193@gmail.com" class="fas fa-envelope mr-3 text-success"></a>
+          Email
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="text-light text-center py-3">© 2020 Copyright:
+    <a href="https://dainty-1.herokuapp.com/"> Dainty</a>
+  </div>
+</footer>
+
+</body>
   
 </html>

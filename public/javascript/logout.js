@@ -5,6 +5,11 @@ async function logout() {
     });
 
     if (response.ok) {
+        await Swal.fire(
+            'Logged Out',
+            'Hope to see you again!',
+            'info'
+        )
         document.location.replace('/');
     } else {
         alert(response.statusText);

@@ -1,12 +1,13 @@
-<div class="comments">
+<div class="comments white-background my-3 p-3">
   {{#each this}}
-  <section class="card p-3 comment">
+  <section class="comment mb-3">
     <div class="meta">
       <strong>{{user.username}}</strong> on <strong>{{format_date created_at}}</strong>
     </div>
     <div class="text">
       {{comment_text}}
     </div>
+    <a href="/comments/{{id}}" id="comment-number" class="delete-comment-btn">Delete</a>
   </section>
   {{/each}}
 </div>

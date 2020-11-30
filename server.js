@@ -2,25 +2,6 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-// const multer = require('multer')
-
-// const storage = multer.diskStorage({
-//     destination: function(req, file, cb) {
-//         cb(null, 'uploads')
-//     },
-//     filename: function(req, file, cb) {
-//         cb(null, Date.now() + path.extname(file.originalname)) //Appending extension
-//     }
-// })
-// const fileFilter = (req, file, cb) => {
-//     if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' || file.mimetype == 'image/jpg') {
-//         cb(null, true);
-//     } else {
-//         cb(null, false);
-//     }
-// }
-
-// const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -48,10 +29,13 @@ const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(express.json({ limit: "20MB" }));
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use("/public/images", express.static(path.join(__dirname, 'public/images')));
+app.use("/public/uploads", express.static(path.join(__dirname, 'public/uploads')));
+app.use("/dashboard/public/uploads", express.static(path.join(__dirname, 'public/uploads')));
+app.use("/recipe/public/uploads", express.static(path.join(__dirname, 'public/uploads')));
 
 app.use(require('./controllers/'));
 

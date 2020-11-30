@@ -31,7 +31,8 @@ User.hasMany(Comment, {
 });
 
 Recipe.hasMany(Comment, {
-    foreignKey: 'recipe_id'
+    foreignKey: 'recipe_id',
+    onDelete: 'CASCADE'
 });
 
 module.exports = { User, Recipe, Comment };

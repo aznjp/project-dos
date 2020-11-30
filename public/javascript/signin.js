@@ -17,9 +17,18 @@ async function signupFormHandler(event) {
         });
 
         if (response.ok) {
+            await Swal.fire(
+                'Good Job!',
+                'You are now a FOOD BLOGGER!!!!',
+                'success'
+            )
             document.location.replace('/dashboard/');
         } else {
-            alert(response.statusText);
+            await Swal.fire(
+                'Info Missing!',
+                'Signin missing fields!',
+                'info'
+            )
         }
     }
 }
