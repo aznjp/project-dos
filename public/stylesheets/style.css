@@ -88,17 +88,18 @@ body {
     color: white
 }
 
-footer {
-    background-color: var(--navbar-color);
-}
 
-.footer-element {
+/* footer {
+    background-color: var(--navbar-color);
+} */
+
+
+/* .footer-element {
     text-decoration-style: none;
     font-family: serif;
     text-shadow: 2px 4px 2px black;
     color: var(--light-text);
-}
-
+} */
 
 .recipe {
     overflow: hidden;
@@ -156,7 +157,7 @@ h5 {
     height: 50px;
 }
 
-.white-background{
+.white-background {
     background-color: var(--light-text);
 }
 
