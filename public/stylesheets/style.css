@@ -7,42 +7,25 @@
     --darker-greencolor: rgb(40, 68, 40);
 }
 
-.navbar a,
-.navbar a:hover,
-.navbar a:visited {
-    text-decoration-style: none;
-    font-family: serif;
-    text-shadow: 2px 4px 2px black;
-    color: var(--light-text);
-}
-
-.nav-brand {
-    text-shadow: 2px 5px 2px black;
-}
-
 body {
     background-image: url(../images/background.jpg);
     background-size: cover;
 }
 
-.card {
-    border: white;
+
+/* Navbar stylings */
+
+#navbarSupportedContent {
+    justify-content: flex-end;
 }
 
-.card-body {
-    background-color: var(--title-color);
-    ;
+.burger-icon {
+    height: 40px;
+    width: 50px;
 }
 
-.card-title {
-    background-color: var(--title-color);
-    border-radius: 0;
-}
 
-.recipe-list {
-    justify-content: center;
-    align-content: center;
-}
+/* Login and Signup page stylings */
 
 .login-page,
 .signup-page {
@@ -77,32 +60,11 @@ body {
     text-align: right;
 }
 
-.recipe h3 {
-    color: var(--navbar-color);
-    font-family: serif;
-    font-size: 2rem;
-    font-weight: 200s;
-}
+
+/* Homepage stylings */
 
 .btn {
     color: white
-}
-
-
-/* footer {
-    background-color: var(--navbar-color);
-} */
-
-
-/* .footer-element {
-    text-decoration-style: none;
-    font-family: serif;
-    text-shadow: 2px 4px 2px black;
-    color: var(--light-text);
-} */
-
-.recipe {
-    overflow: hidden;
 }
 
 .username {
@@ -139,14 +101,8 @@ h5 {
     right: 0%;
 }
 
-#navbarSupportedContent {
-    justify-content: flex-end;
-}
 
-.burger-icon {
-    height: 40px;
-    width: 50px;
-}
+/* Recipe stylings */
 
 .recipe-block {
     white-space: pre-line;
