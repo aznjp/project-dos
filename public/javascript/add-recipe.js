@@ -11,12 +11,17 @@ async function newRecipeHandler(event) {
 
         await Swal.fire(
             'Good Job!',
-            'Recipe is now uploaded!!!!',
+            'Recipe is now uploaded!',
             'success'
         )
         document.location.replace('/dashboard');
     } else {
-        alert(response.statusText);
+
+        await Swal.fire(
+            'Info Missing!',
+            'Recipe requires all inputs and an image',
+            'info'
+        )
     }
 }
 

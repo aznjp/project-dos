@@ -24,7 +24,11 @@ async function editFormHandler(event) {
         })
         document.location.replace('/dashboard/');
     } else {
-        alert(response.statusText);
+        await Swal.fire(
+            'Info Missing!',
+            'Recipe requires all inputs and an image',
+            'info'
+        )
     }
 }
 

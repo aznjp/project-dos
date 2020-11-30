@@ -36,18 +36,19 @@
     </a>
   </div>
 
-  <div class="recipies px-3">
+  <div class="px-3">
     <h2 class="mt-5">Recipes:</h2>
     <div class="container px-0 mb-5">
       <div class="row">
         {{#each recipes as |recipe|}}
         <div class="col-12 col-md-4 mb-3 row no-gutters">
           <div class="col-4">
-            <img class="d-block w-100" src="{{recipe.recipe_image}}" height="100" alt="Image">
+            <img class="d-block w-100" src="{{recipe.recipe_image}}" height="100"alt="Image">
           </div>
           <div class="col-8 pl-1">
             <a href="/recipe/{{recipe.id}}">{{recipe.title}}</a><br />
             By: <span class="username">{{recipe.user.username}}</span>
+            <div class="recipe-block description-block overflow-hidden">{{recipe.description}}</div>
           </div>
           
         </div>

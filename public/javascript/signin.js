@@ -24,7 +24,11 @@ async function signupFormHandler(event) {
             )
             document.location.replace('/dashboard/');
         } else {
-            alert(response.statusText);
+            await Swal.fire(
+                'Info Missing!',
+                'Signin missing fields!',
+                'info'
+            )
         }
     }
 }

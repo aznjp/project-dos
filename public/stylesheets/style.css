@@ -151,7 +151,10 @@ h5 {
 
 .recipe-block {
     white-space: pre-line;
-    overflow: hidden
+}
+
+.description-block {
+    height: 50px;
 }
 
 
