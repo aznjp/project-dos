@@ -4,6 +4,7 @@
     --navbar-color: #212529;
     --title-color: #393e46;
     --green-color: rgb(72, 175, 72);
+    --darker-greencolor: rgb(40, 68, 40);
 }
 
 .navbar a,
@@ -91,16 +92,13 @@ footer {
     background-color: var(--navbar-color);
 }
 
-.footer-title {
+.footer-element {
     text-decoration-style: none;
     font-family: serif;
     text-shadow: 2px 4px 2px black;
     color: var(--light-text);
 }
 
-.contact-us {
-    color: white;
-}
 
 .recipe {
     overflow: hidden;
@@ -151,10 +149,15 @@ h5 {
 
 .recipe-block {
     white-space: pre-line;
+    color: var(--darker-greencolor);
 }
 
 .description-block {
     height: 50px;
+}
+
+.white-background{
+    background-color: var(--light-text);
 }
 
 

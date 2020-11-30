@@ -2,7 +2,7 @@
   <div class="col-auto mr-2 mt-3">
     <img src="{{recipe.recipe_image}}" height="100" />
   </div>
-  
+
   <div class="col mt-3">
     <span class="d-block">
       <a href="/recipe/{{recipe.id}}">{{recipe.title}}</a>
@@ -12,6 +12,8 @@
     </span>
   </div>
 </div>
+
+<div class="white-background p-3">
 
 <div class="recipe-block row no-gutters mb-3">
   <div class="col-12 col-md-5">
@@ -30,9 +32,9 @@
       {{recipe.instructions}}
   </div>
 </div>
-
+</div>
 {{#if loggedIn}}
-<form class="comment-form">
+<form class="comment-form mt-3">
   <div class="mb-3">
     <textarea name="comment-body" class="form-control" rows="5"></textarea>
     <button type="submit" class ="btn btn-success btn-block">Add Comment</button>
