@@ -77,3 +77,6 @@ An application that will run in the browser and is updated based on the actions 
 * [Express-Sessions](https://www.npmjs.com/package/express-session)
 * [Sequelize](https://sequelize.org/master/index.html)
 * [MYSQL](https://www.mysql.com/)
+* [Dotenv](https://www.npmjs.com/package/dotenv)
+* [BCrypt](https://www.npmjs.com/package/bcrypt)
+* [Multer](https://www.npmjs.com/package/multer)
