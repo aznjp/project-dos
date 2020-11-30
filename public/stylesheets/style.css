@@ -1,12 +1,11 @@
-:root {
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+ :root {
     --light-text: #ffffff;
     --navbar-color: #212529;
     --title-color: #393e46;
-    --success: #28a745
+    --green-color: rgb(72, 175, 72);
+    --darker-greencolor: rgb(40, 68, 40);
 }
-
-
-/* header styles */
 
 .navbar a,
 .navbar a:hover,
@@ -21,19 +20,18 @@
     text-shadow: 2px 5px 2px black;
 }
 
-
-/* body */
-
 body {
-    background-image: url(../images/food.jpg);
+    background-image: url(../images/background.jpg);
     background-size: cover;
 }
 
-
-/* recipe card styles */
-
 .card {
     border: white;
+}
+
+.card-body {
+    background-color: var(--title-color);
+    ;
 }
 
 .card-title {
@@ -41,40 +39,10 @@ body {
     border-radius: 0;
 }
 
-.recipe-info {
-    color: var(--success)
-}
-
-.recipe h3 {
-    color: white;
-    font-family: serif;
-    font-size: 2rem;
-    font-weight: 200s;
-}
-
-.recipe-info strong {
-    color: white;
-    font-style: italic;
-    text-shadow: 1px, 3px, white;
-}
-
 .recipe-list {
     justify-content: center;
     align-content: center;
 }
-
-.placebolder {
-    background-image: url(https://img2.pngio.com/how-to-check-broken-image-with-jquery-and-ajax-default-png-300_300.png);
-    width: 300px;
-    height: 300px;
-}
-
-.recipe-img {
-    min-height: 300px;
-}
-
-
-/* login and signup styles */
 
 .login-page,
 .signup-page {
@@ -109,37 +77,46 @@ body {
     text-align: right;
 }
 
+.recipe h3 {
+    color: var(--navbar-color);
+    font-family: serif;
+    font-size: 2rem;
+    font-weight: 200s;
+}
+
 .btn {
     color: white
 }
 
 
-/* footer styling */
-
-footer {
+/* footer {
     background-color: var(--navbar-color);
-}
+} */
 
-.footer-title {
+
+/* .footer-element {
     text-decoration-style: none;
     font-family: serif;
     text-shadow: 2px 4px 2px black;
     color: var(--light-text);
+} */
+
+.recipe {
+    overflow: hidden;
 }
 
-.contact-us {
-    color: white;
+.username {
+    color: rgb(247, 107, 107);
+    text-transform: capitalize;
 }
 
-.editable {
-    width: 100%;
-    border: 1px solid #ccc;
-    padding: 5px;
+.homepage-container {
+    background-color: white;
+    border: 4px solid var(--green-color);
 }
 
-.recipe-ingredients,
-.recipe-instructions {
-    height: 300px;
+.homepage-container .carousel {
+    border-bottom: 4px solid var(--green-color);
 }
 
 ol {
@@ -148,4 +125,113 @@ ol {
 
 ul {
     list-style: none;
+    align-items: inherit;
+}
+
+h5 {
+    font-family: 'Russo One', sans-serif;
+}
+
+.carousel-caption {
+    background-color: var(--green-color);
+    width: 100%;
+    left: 0%;
+    right: 0%;
+}
+
+#navbarSupportedContent {
+    justify-content: flex-end;
+}
+
+.burger-icon {
+    height: 40px;
+    width: 50px;
+}
+
+.recipe-block {
+    white-space: pre-line;
+    color: var(--darker-greencolor);
+}
+
+.description-block {
+    height: 50px;
+}
+
+.white-background {
+    background-color: var(--light-text);
+}
+
+
+/* MEDIA QUERIES FOR CUSTOMIZING CAROUSEL SIZES */
+
+@media (max-width: 575.98px) {
+    .carousel-image-size {
+        height: 300px;
+    }
+    .carousel-caption {
+        height: 70px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    h5 {
+        font-size: 20px;
+        margin-bottom: 0;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .carousel-image-size {
+        height: 350px;
+    }
+    .carousel-caption {
+        height: 75px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    h5 {
+        font-size: 22px;
+        margin-bottom: 0;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .carousel-image-size {
+        height: 400px;
+    }
+    .carousel-caption {
+        height: 80px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    h5 {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .carousel-image-size {
+        height: 500px;
+    }
+    .carousel-caption {
+        height: 90px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    h5 {
+        font-size: 26px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .carousel-image-size {
+        height: 615px;
+    }
+    .carousel-caption {
+        height: 115px;
+    }
+    h5 {
+        font-size: 30px;
+    }
 }

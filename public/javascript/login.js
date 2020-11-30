@@ -22,7 +22,11 @@ async function loginFormHandler(event) {
             )
             document.location.replace('/dashboard/');
         } else {
-            alert(response.statusText);
+            await Swal.fire(
+                'Info Missing!',
+                'Wrong email or password!',
+                'info'
+            )
         }
     }
 }

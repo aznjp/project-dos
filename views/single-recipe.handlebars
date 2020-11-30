@@ -1,20 +1,49 @@
-<div class="single-recipe">
-  {{> recipe-info recipe}}
+<div class="row no-gutters mb-3 mt-3">
+  <div class="col-auto mr-2 mt-3">
+    <img src="{{recipe.recipe_image}}" height="100" />
+  </div>
+
+  <div class="col mt-3">
+    <span class="d-block">
+      <a href="/recipe/{{recipe.id}}">{{recipe.title}}</a>
+    </span>
+    <span class="d-block text-muted">
+      Created by: {{recipe.user.username}} on <strong>{{format_date recipe.created_at}}</strong>
+    </span>
+  </div>
 </div>
 
-{{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body" class="form-control" rows="5"></textarea>
+<div class="white-background p-3">
+
+<div class="recipe-block row no-gutters mb-3">
+  <div class="col-12 col-md-5">
+    <h2>DESCRIPTION</h2>
+    {{recipe.description}}
   </div>
-  <div>
+</div>
+
+<div class="recipe-block row no-gutters mb-3">
+  <div class="col-12 col-md-5">
+    <h2>INGREDIENTS</h2>
+    {{recipe.ingredients}}
+  </div>
+  <div class="recipe-block col-12 col-md-7 pl-md-4">
+    <h2>INSTRUCTIONS</h2>
+      {{recipe.instructions}}
+  </div>
+</div>
+</div>
+{{#if loggedIn}}
+<form class="comment-form mt-3">
+  <div class="mb-3">
+    <textarea name="comment-body" class="form-control" rows="5"></textarea>
     <button type="submit" class ="btn btn-success btn-block">Add Comment</button>
   </div>
 </form>
 {{/if}}
 {{> comments recipe.comments}}
 
-
+ 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 {{/if}}

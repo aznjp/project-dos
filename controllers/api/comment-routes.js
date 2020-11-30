@@ -37,10 +37,6 @@ router.put('/:id', withAuth, (req, res) => {
                 res.status(404).json({ message: 'No Comments found with this id' });
                 return;
             }
-            // else if (!req.session.user_id) {
-            //     res.status(404).json({ message: 'This is not your comment!' });
-            //     return;
-            // }
             res.json(dbCommentData);
         })
         .catch(err => {
@@ -60,10 +56,6 @@ router.delete('/:id', withAuth, (req, res) => {
                 res.status(404).json({ message: 'No comment found with this id!' });
                 return;
             }
-            // else if (!req.session.user_id) {
-            //     res.status(404).json({ message: 'This is not your comment!' });
-            //     return;
-            // }
             res.json(dbCommentData);
         })
         .catch(err => {
