@@ -107,10 +107,8 @@ router.post('/', upload.single('recipe-img'), withAuth, async(req, res) => {
     req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.description.replace(/(\r\n|\n|\r)/gm, "<br />");
-    console.log(req.file)
-    const result = await cloudinary.uploader.upload(req.file.path);
 
-    console.log(result)
+    const result = await cloudinary.uploader.upload(req.file.path);
 
     Recipe.create({
             title: req.body.title,
@@ -138,7 +136,7 @@ router.put('/:id', upload.single('recipe-img'), withAuth, async(req, res) => {
     req.body.description.replace(/(\r\n|\n|\r)/gm, "<br />");
 
     const result = await cloudinary.uploader.upload(req.file.path);
-    console.log(result)
+
     Recipe.update({
             title: req.body.title,
             instructions: req.body.instructions,
