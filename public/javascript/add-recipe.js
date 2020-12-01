@@ -2,7 +2,7 @@ async function newRecipeHandler(event) {
     event.preventDefault();
     let form = document.querySelector("#recipe-form")
     let formData = new FormData(form)
-
+    console.log(formData)
     const response = await fetch(`/api/recipes`, {
         method: 'POST',
         body: formData
