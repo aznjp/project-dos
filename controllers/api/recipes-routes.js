@@ -103,12 +103,15 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', upload.single('recipe-img'), withAuth, async(req, res) => {
+
     req.body.ingredients.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.instructions.replace(/(\r\n|\n|\r)/gm, "<br />");
     req.body.description.replace(/(\r\n|\n|\r)/gm, "<br />");
 
     const result = await cloudinary.uploader.upload(req.file.path);
+
     console.log(result)
+
     Recipe.create({
             title: req.body.title,
             instructions: req.body.instructions,
