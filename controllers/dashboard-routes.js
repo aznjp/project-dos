@@ -14,6 +14,7 @@ router.get('/', withAuth, (req, res) => {
                 'instructions',
                 'description',
                 'recipe_image',
+                'cloudinary_id',
                 'created_at',
             ],
             include: [{
@@ -49,6 +50,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 'instructions',
                 'description',
                 'recipe_image',
+                'cloudinary_id',
                 'created_at',
             ],
             include: [{
@@ -94,6 +96,7 @@ router.get('/new-recipe', withAuth, (req, res) => {
                 'instructions',
                 'description',
                 'recipe_image',
+                'cloudinary_id',
                 'created_at',
             ],
             include: [{
