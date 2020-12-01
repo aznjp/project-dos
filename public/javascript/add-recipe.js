@@ -7,6 +7,7 @@ async function newRecipeHandler(event) {
         method: 'POST',
         body: formData
     });
+    console.log(response)
     if (response.ok) {
 
         await Swal.fire(
