@@ -6,7 +6,7 @@ async function editFormHandler(event) {
 
     let form = document.querySelector("#edit-recipe-form")
     let formData = new FormData(form)
-    console.log(formData)
+
     const response = await fetch(`/api/recipes/${id}`, {
         method: 'PUT',
         body: formData,
