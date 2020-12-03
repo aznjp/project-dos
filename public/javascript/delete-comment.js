@@ -2,11 +2,11 @@ async function deleteCommentHandler(event) {
     event.preventDefault();
 
     const id = document.getElementById("comment-number").getAttribute("href")
-
-    const response = await fetch(`/api/${id}`, {
+    console.log(id)
+    const response = await fetch(`/api${id}`, {
         method: 'DELETE'
     });
-
+    console.log(response)
     if (response.ok) {
         await Swal.fire(
             'Comment Deleted',
